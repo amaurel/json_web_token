@@ -1,0 +1,11 @@
+name: json_web_token
+version: 0.1.0
+description: Json Web Token
+dependencies:
+  asn1lib: 
+    path: ../../third/asn1lib
+  rsa_pkcs:
+    path: ../rsa_pkcs
+  cipher: any
+  crypto: any
+  unittest: any

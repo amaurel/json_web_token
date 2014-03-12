@@ -2,3 +2,7 @@
 packages
 .project
 pubspec.lock
+/test/private_test_settings.dart
+/gitcommit.dart
+/gitpush.dart
+/gitstatus.dart
