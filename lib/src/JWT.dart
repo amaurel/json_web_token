@@ -1,9 +1,6 @@
 part of json_web_token;
 
-//openssl pkcs12 -in 012ad5aa4c831d025ed1d66c396a242605ec3b95-privatekey.p12 -nocerts -passin pass:notasecret -nodes -out mwmkey.pem
-//openssl sha -sha256 -sign priv.pem < signThis > signedData
-//openssl sha -sha256 -sign private.pem < data.txt
-//openssl rsa -in dummy.key -noout -text
+//openssl pkcs12 -in privatekey.p12 -nocerts -passin pass:notasecret -nodes -out rsa_private_key.pem
 
 class JWTStore {
   static JWTStore CURRENT;
