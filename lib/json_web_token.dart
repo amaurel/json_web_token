@@ -12,9 +12,5 @@ import "package:cipher/random/secure_random_base.dart";
 
 import 'package:rsa_pkcs/rsa_pkcs.dart' as rsa_pkcs;
 
-import "package:bignum/bignum.dart";
-
 part 'src/JWT.dart';
-
-
-//version 0.0.1
+ 

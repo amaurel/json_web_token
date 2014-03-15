@@ -10,7 +10,9 @@ import 'test_settings.dart';
 //import 'private_test_settings.dart';
   
 void main(){
-  
+  var pemkey = new File(rsa_private_key_file).readAsStringSync();
+  JWTStore.getCurrent().registerKey(iss, pemkey);
+        
   simpleTest(){
      
     test('test 1' , (){
@@ -26,7 +28,6 @@ void main(){
     });
     
     test('test 2' , (){
-      JWTStore.getCurrent().registerKey(iss, rsa_private_key_file);
      return  JWTStore.getCurrent().generateJWT(iss, scopes).then((JWT jwt){
         print(jwt.auth);
         print(jwt.isExpired);

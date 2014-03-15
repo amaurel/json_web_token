@@ -14,8 +14,7 @@ class JWTStore {
   Map<String, RSAPrivateKey> iss_privateKeys = {};
   Map<String, Map<String, JWT>> _store = {};
      
-  void registerKey(String isss, String keyfile, {String password}){
-    var pemkey = new File(keyfile).readAsStringSync();
+  void registerKey(String isss, String pemkey, {String password}){
     rsa_pkcs.RSAPKCSParser parser = new rsa_pkcs.RSAPKCSParser();
     rsa_pkcs.RSAPrivateKey pk = parser.parsePEM(pemkey, password:password).private;
     RSAPrivateKey privk = new RSAPrivateKey(pk.modulus, pk.privateExponent, pk.prime1, pk.prime2);
