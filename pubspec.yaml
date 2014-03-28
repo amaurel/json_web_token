@@ -1,5 +1,5 @@
 name: json_web_token
-version: 0.1.0
+version: 0.1.1
 author: Alexandre Maurel <alexandre.maurel@gmail.com>
 description: Json Web Token
 homepage: https://github.com/amaurel/json_web_token
