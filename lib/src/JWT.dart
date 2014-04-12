@@ -184,7 +184,7 @@ class NullSecureRandom extends SecureRandomBase {
   var _nextValue=0;
   String get algorithmName => "Null";
   void seed(CipherParameters params) {}
-  int nextUint8() => Uint8.clip(_nextValue++);
+  int nextUint8() => 0;
 }
 
 class AuthorizationError extends Error {
