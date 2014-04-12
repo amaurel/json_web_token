@@ -82,7 +82,10 @@ class JWT {
       })
         .then((HttpClientResponse response) {
           return response.toList().then((list){
-            auth = JSON.decode(new String.fromCharCodes(list.first));
+            auth = JSON.decode(new String.fromCharCodes(list.expand((i) => i)));
+            if (auth['error'] != null) {
+              throw new AuthorizationError(auth['error_description']);
+            }
             return auth;
           });
         });
@@ -101,7 +104,10 @@ class JWT {
         })
           .then((HttpClientResponse response) {
             return response.toList().then((list){
-              auth = JSON.decode(new String.fromCharCodes(list.first));
+              auth = JSON.decode(new String.fromCharCodes(list.expand((i) => i)));
+              if (auth['error'] != null) {
+                throw new AuthorizationError(auth['error_description']);
+              }
               return auth;
             });
           });
@@ -179,4 +185,12 @@ class NullSecureRandom extends SecureRandomBase {
   String get algorithmName => "Null";
   void seed(CipherParameters params) {}
   int nextUint8() => Uint8.clip(_nextValue++);
+}
+
+class AuthorizationError extends Error {
+  String error;
+  
+  AuthorizationError(this.error);
+  
+  String toString() => "Authorisation error: $error";
 }
